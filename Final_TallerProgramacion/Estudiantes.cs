@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,8 +21,17 @@ namespace Final_TallerProgramacion
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private int idSeleccionado = 0;
+        private void dgvEstudiantes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+           
+            if (e.RowIndex >= 0)
+            {
+                BtnEditarEst.Enabled = true;
+                BtnEliminarEstud.Enabled = true;
+
+                idSeleccionado = Convert.ToInt32(dgvEstudiantes.CurrentRow.Cells[0].Value);
+            }
 
         }
 
@@ -124,6 +134,7 @@ namespace Final_TallerProgramacion
             MessageBox.Show("Modo Alta activado. Ingrese los datos y presione ACEPTAR", "Nuevo Estudiante", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
+        
         public void LimpiarCampos()
         {
             textboxCodig.Clear();
@@ -173,6 +184,7 @@ namespace Final_TallerProgramacion
 
             Datos.EstudianteEntidad Estudiante = new Datos.EstudianteEntidad
             {
+                Id = idSeleccionado,
                 CI = textboxCodig.Text.Trim(),
                 NombreEstudiante = textboxNombre.Text.Trim(),
                 Direccion = textboxDireccion.Text.Trim(),
@@ -187,15 +199,63 @@ namespace Final_TallerProgramacion
                 resultado = Datos.InsertarEstudiante(Estudiante);
                 if (resultado)
                 {
-                    MessageBox.Show("Estudiante agregado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Estudiante agregado con exito.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos();
                 }
+            } else if (modoActual == ModoABM.Edicion)
+            {
+                resultado = Datos.ModificarEstudiante(Estudiante);
+                if (resultado)
+                {
+                    MessageBox.Show("Estudiante Editado con Exito.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+
+            if (resultado)
+            {
+                LimpiarCampos();
+                // DeshabilitarCampos(); // Si tienes este método para bloquear los TextBox
+
+                // REFRESCAR LA GRILLA: Llama a tu método que carga el DataGridView
+                CargarGrillaEstudiantes();
+
+                // Resetear estados
+                modoActual = ModoABM.Visual;
+                idSeleccionado = 0;
+                BtnEditarEst.Enabled = false;
+                BtnEliminarEstud.Enabled = false;
             }
         }
 
         private void BtnEditarEst_Click(object sender, EventArgs e)
         {
+            BtnAgregarEst.Enabled = false;
+            BtnEliminarEstud.Enabled = false; 
 
+
+            if (idSeleccionado > 0)
+            {
+                textboxCodig.Text = dgvEstudiantes.CurrentRow.Cells["CI"].Value.ToString();
+                textboxNombre.Text = dgvEstudiantes.CurrentRow.Cells["NombreEstudiante"].ToString();
+                textboxDireccion.Text = dgvEstudiantes.CurrentRow.Cells["Direccion"].ToString();
+                textboxCarrera.Text = dgvEstudiantes.CurrentRow.Cells["Carrera"].ToString();
+                textboxEdad.Text = dgvEstudiantes.CurrentRow.Cells["Edad"].ToString();
+
+                modoActual = ModoABM.Edicion;
+
+                HabilitarCampos();
+                textboxCodig.Focus();
+
+                MessageBox.Show("Modo Edicion Activado. Modifique los campos y precione ACEPTAR.");
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            BtnEditarEst.Enabled = true;
+            BtnEliminarEstud.Enabled = true;
         }
     }
 }

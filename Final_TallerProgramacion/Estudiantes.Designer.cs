@@ -53,6 +53,7 @@
             label2 = new Label();
             label1 = new Label();
             BtnVolver = new Button();
+            btnCancelar = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEstudiantes).BeginInit();
             SuspendLayout();
@@ -60,6 +61,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Controls.Add(btnCancelar);
             panel1.Controls.Add(lblResPromedio);
             panel1.Controls.Add(cmbEstudiant);
             panel1.Controls.Add(btnPromedio);
@@ -132,7 +134,7 @@
             dgvEstudiantes.ReadOnly = true;
             dgvEstudiantes.Size = new Size(462, 277);
             dgvEstudiantes.TabIndex = 38;
-            dgvEstudiantes.CellContentClick += dataGridView1_CellContentClick;
+            dgvEstudiantes.CellContentClick += dgvEstudiantes_CellContentClick;
             // 
             // textboxEdad
             // 
@@ -199,7 +201,7 @@
             BtnAceptar.BackColor = Color.RoyalBlue;
             BtnAceptar.Cursor = Cursors.Hand;
             BtnAceptar.Font = new Font("Consolas", 9F, FontStyle.Bold);
-            BtnAceptar.Location = new Point(553, 408);
+            BtnAceptar.Location = new Point(492, 408);
             BtnAceptar.Name = "BtnAceptar";
             BtnAceptar.Size = new Size(80, 31);
             BtnAceptar.TabIndex = 30;
@@ -338,6 +340,20 @@
             BtnVolver.Text = "👈 Volver";
             BtnVolver.UseVisualStyleBackColor = false;
             // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = Color.RoyalBlue;
+            btnCancelar.Cursor = Cursors.Hand;
+            btnCancelar.Font = new Font("Consolas", 9F, FontStyle.Bold);
+            btnCancelar.ForeColor = Color.Red;
+            btnCancelar.Location = new Point(588, 408);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(80, 31);
+            btnCancelar.TabIndex = 42;
+            btnCancelar.Text = "CANCELAR";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
             // Estudiantes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -380,5 +396,6 @@
         private ComboBox cmbEstudiant;
         private Button btnPromedio;
         private Label lblResPromedio;
+        private Button btnCancelar;
     }
 }

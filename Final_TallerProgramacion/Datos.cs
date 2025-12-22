@@ -280,6 +280,39 @@ namespace Final_TallerProgramacion
                 }
             }
         }
+        public static bool ModificarEstudiante(EstudianteEntidad EstudianteEditado)
+        {
+            Conexion Objconexion = new Conexion();
+            try
+            {
+                using (SqlConnection conexion = Objconexion.AbrirConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand("SP_EditarEstudiante", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.AddWithValue("@Id", EstudianteEditado.Id);
+                        comando.Parameters.AddWithValue("@CI", EstudianteEditado.CI);
+                        comando.Parameters.AddWithValue("@Nombre", EstudianteEditado.NombreEstudiante);
+                        comando.Parameters.AddWithValue("@Direccion", EstudianteEditado.Direccion);
+                        comando.Parameters.AddWithValue("@Carrera", EstudianteEditado.Carrera);
+                        comando.Parameters.AddWithValue("@Edad", EstudianteEditado.Edad);
+
+                        int filas = comando.ExecuteNonQuery();
+                        return filas > 0;
+                    }
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error al modificar", ex.Message);
+                return false;
+            }
+            finally
+            {
+                Objconexion.CerrarConexion();
+            }
+        }
         public static List<GrillaAutores> listarAutores(string textoBusqueda = "", string campoBusqueda = "")
         {
             List<GrillaAutores> listaAutores = new List<GrillaAutores>();
