@@ -31,6 +31,7 @@ namespace Final_TallerProgramacion
 
         internal class GrillaEstudiantes
         {
+            public int IdEstudiante { get; set; }
             public string CI { get; set; }
             public string NombreEstudiante {  get; set; }
             public string Direccion {  get; set; }
@@ -313,6 +314,33 @@ namespace Final_TallerProgramacion
                 Objconexion.CerrarConexion();
             }
         }
+        public static bool EliminarEstudiante (int idEstudianteAEliminar)
+        {
+            Conexion Objconexion = new Conexion();
+            try
+            {
+                using (SqlConnection conexion = Objconexion.AbrirConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand("SP_Estudiante_Eliminar", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.AddWithValue("@Id", idEstudianteAEliminar);
+
+                        int filasAfectadas = comando.ExecuteNonQuery();
+                        return filasAfectadas > 0;
+                    }
+                }    
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                Objconexion.CerrarConexion();
+            }
+        }
         public static List<GrillaAutores> listarAutores(string textoBusqueda = "", string campoBusqueda = "")
         {
             List<GrillaAutores> listaAutores = new List<GrillaAutores>();
@@ -371,7 +399,7 @@ namespace Final_TallerProgramacion
             List<GrillaEstudiantes> listaEstudiate = new List<GrillaEstudiantes>();
             Conexion Objconexion = new Conexion();
 
-            string consultaSql = " SELECT CI, Nombre, Direccion, Carrera, Edad  FROM Estudiantes";
+            string consultaSql = " SELECT IdEstudiantes, CI, Nombre, Direccion, Carrera, Edad  FROM Estudiantes";
 
             if (!string.IsNullOrEmpty(textoBusqueda))
             {
@@ -422,11 +450,12 @@ namespace Final_TallerProgramacion
                         {
                             listaEstudiate.Add(new GrillaEstudiantes()
                             {
-                                CI = reader.GetString(0),
-                                NombreEstudiante = reader.GetString(1),
-                                Direccion = reader.GetString(2),
-                                Carrera = reader.GetString(3),
-                                Edad = reader.GetInt32(4)
+                                IdEstudiante = reader.GetInt32(0),
+                                CI = reader.GetString(1),
+                                NombreEstudiante = reader.GetString(2),
+                                Direccion = reader.GetString(3),
+                                Carrera = reader.GetString(4),
+                                Edad = reader.GetInt32(5)
                             });               
                         }
                         reader.Close();

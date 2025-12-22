@@ -24,7 +24,7 @@ namespace Final_TallerProgramacion
         private int idSeleccionado = 0;
         private void dgvEstudiantes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
             if (e.RowIndex >= 0)
             {
                 BtnEditarEst.Enabled = true;
@@ -134,7 +134,7 @@ namespace Final_TallerProgramacion
             MessageBox.Show("Modo Alta activado. Ingrese los datos y presione ACEPTAR", "Nuevo Estudiante", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
-        
+
         public void LimpiarCampos()
         {
             textboxCodig.Clear();
@@ -202,7 +202,8 @@ namespace Final_TallerProgramacion
                     MessageBox.Show("Estudiante agregado con exito.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos();
                 }
-            } else if (modoActual == ModoABM.Edicion)
+            }
+            else if (modoActual == ModoABM.Edicion)
             {
                 resultado = Datos.ModificarEstudiante(Estudiante);
                 if (resultado)
@@ -231,7 +232,7 @@ namespace Final_TallerProgramacion
         private void BtnEditarEst_Click(object sender, EventArgs e)
         {
             BtnAgregarEst.Enabled = false;
-            BtnEliminarEstud.Enabled = false; 
+            BtnEliminarEstud.Enabled = false;
 
 
             if (idSeleccionado > 0)
@@ -256,6 +257,47 @@ namespace Final_TallerProgramacion
             LimpiarCampos();
             BtnEditarEst.Enabled = true;
             BtnEliminarEstud.Enabled = true;
+        }
+
+        private void BtnVolver_Click(object sender, EventArgs e)
+        {
+            Menu formMenu = new Menu();
+            formMenu.ShowDialog();
+
+        }
+
+        private void BtnEliminarEstud_Click(object sender, EventArgs e)
+        {
+            if (idSeleccionado > 0)
+            {
+                DialogResult confirmacion = MessageBox.Show("¿Estas seguro que desea ELIMINAR permanentemente este Estudiante?",
+                    "Confirmar Eliminacion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (confirmacion == DialogResult.Yes)
+                {
+                    bool Exito = Datos.EliminarEstudiante(idSeleccionado);
+
+                    if (Exito)
+                    {
+                        MessageBox.Show("Estudiante ELIMINADO CORRECTAMENTE.", 
+                            "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Limpiamos todo para que el usuario no intente editar algo que ya no existe
+                        LimpiarCampos();
+                        CargarGrillaEstudiantes(); // Método que refresca tu DataGridView
+
+                        // Deshabilitamos botones
+                        BtnEditarEst.Enabled = true;
+                        BtnEliminarEstud.Enabled = true;
+                        idSeleccionado = 0;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona un estudiante de la lista primero.", 
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btnCancelar = new Button();
             lblResPromedio = new Label();
             cmbEstudiant = new ComboBox();
             btnPromedio = new Button();
@@ -53,7 +54,6 @@
             label2 = new Label();
             label1 = new Label();
             BtnVolver = new Button();
-            btnCancelar = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEstudiantes).BeginInit();
             SuspendLayout();
@@ -92,6 +92,20 @@
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = Color.RoyalBlue;
+            btnCancelar.Cursor = Cursors.Hand;
+            btnCancelar.Font = new Font("Consolas", 9F, FontStyle.Bold);
+            btnCancelar.ForeColor = Color.Red;
+            btnCancelar.Location = new Point(588, 408);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(80, 31);
+            btnCancelar.TabIndex = 42;
+            btnCancelar.Text = "CANCELAR";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
             // lblResPromedio
             // 
             lblResPromedio.AutoSize = true;
@@ -104,7 +118,7 @@
             // cmbEstudiant
             // 
             cmbEstudiant.FormattingEnabled = true;
-            cmbEstudiant.Items.AddRange(new object[] { "Menor Edad", "Mayor Edad", "Edad > Al Promedio" });
+            cmbEstudiant.Items.AddRange(new object[] { "Menor Edad", "Mayor Edad" });
             cmbEstudiant.Location = new Point(317, 71);
             cmbEstudiant.Name = "cmbEstudiant";
             cmbEstudiant.Size = new Size(121, 23);
@@ -260,6 +274,7 @@
             BtnEliminarEstud.TabIndex = 25;
             BtnEliminarEstud.Text = "Eliminar";
             BtnEliminarEstud.UseVisualStyleBackColor = false;
+            BtnEliminarEstud.Click += BtnEliminarEstud_Click;
             // 
             // BtnEditarEst
             // 
@@ -339,20 +354,7 @@
             BtnVolver.TabIndex = 18;
             BtnVolver.Text = "👈 Volver";
             BtnVolver.UseVisualStyleBackColor = false;
-            // 
-            // btnCancelar
-            // 
-            btnCancelar.BackColor = Color.RoyalBlue;
-            btnCancelar.Cursor = Cursors.Hand;
-            btnCancelar.Font = new Font("Consolas", 9F, FontStyle.Bold);
-            btnCancelar.ForeColor = Color.Red;
-            btnCancelar.Location = new Point(588, 408);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(80, 31);
-            btnCancelar.TabIndex = 42;
-            btnCancelar.Text = "CANCELAR";
-            btnCancelar.UseVisualStyleBackColor = false;
-            btnCancelar.Click += btnCancelar_Click;
+            BtnVolver.Click += BtnVolver_Click;
             // 
             // Estudiantes
             // 
