@@ -143,6 +143,7 @@ namespace Final_TallerProgramacion
             StartPosition = FormStartPosition.CenterParent;
             Text = "Form1";
             FormClosed += Login_FormClosed;
+            Load += Login_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

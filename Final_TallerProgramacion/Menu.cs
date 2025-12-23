@@ -99,5 +99,24 @@ namespace Final_TallerProgramacion
         {
             Application.Exit(); // Mata todos los procesos del programa
         }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            // Preguntar al usuario si está seguro (opcional pero recomendado)
+            DialogResult resultado = MessageBox.Show("¿Desea cerrar sesión?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                // 1. Creamos una instancia del Login
+                Login formLogin = new Login();
+
+                // 2. Lo mostramos
+                formLogin.Show();
+
+                // 3. Cerramos el Menú (esto libera la memoria de este form)
+                this.Dispose();
+                this.Close();
+            }
+        }
     }
 }

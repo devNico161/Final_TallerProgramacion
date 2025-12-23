@@ -124,6 +124,7 @@
             toolStripMenuItem5.Name = "toolStripMenuItem5";
             toolStripMenuItem5.Size = new Size(54, 20);
             toolStripMenuItem5.Text = "Salir";
+            toolStripMenuItem5.Click += toolStripMenuItem5_Click;
             // 
             // dgv_Libros
             // 
