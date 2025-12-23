@@ -116,6 +116,7 @@
             prestamosToolStripMenuItem.Name = "prestamosToolStripMenuItem";
             prestamosToolStripMenuItem.Size = new Size(89, 20);
             prestamosToolStripMenuItem.Text = "Prestamos ";
+            prestamosToolStripMenuItem.Click += prestamosToolStripMenuItem_Click;
             // 
             // toolStripMenuItem5
             // 
@@ -144,7 +145,9 @@
             ClientSize = new Size(841, 459);
             Controls.Add(panel1);
             Name = "Menu";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Menu";
+            FormClosed += Menu_FormClosed;
             Load += Menu_Load;
             ((System.ComponentModel.ISupportInitialize)dgvLibros).EndInit();
             panel1.ResumeLayout(false);

@@ -29,8 +29,20 @@ namespace Final_TallerProgramacion
 
         private void BtnVolver_Click(object sender, EventArgs e)
         {
-            Menu fromMenu = new Menu();
-            fromMenu.Show();
+            // Buscamos si el Menú ya está abierto pero oculto
+            Form menu = Application.OpenForms["Menu"];
+
+            if (menu != null)
+            {
+                menu.Show(); // Muestra el menú que ya existía
+            }
+            else
+            {
+                Menu nuevoMenu = new Menu();
+                nuevoMenu.Show();
+            }
+
+            this.Close(); // Cierra DEFINITIVAMENTE el formulario actual (libera memoria)
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

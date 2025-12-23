@@ -88,7 +88,7 @@
             panel1.Controls.Add(BtnVolver);
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(699, 447);
+            panel1.Size = new Size(799, 447);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -98,7 +98,7 @@
             btnCancelar.Cursor = Cursors.Hand;
             btnCancelar.Font = new Font("Consolas", 9F, FontStyle.Bold);
             btnCancelar.ForeColor = Color.Red;
-            btnCancelar.Location = new Point(588, 408);
+            btnCancelar.Location = new Point(685, 392);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(80, 31);
             btnCancelar.TabIndex = 42;
@@ -109,11 +109,12 @@
             // lblResPromedio
             // 
             lblResPromedio.AutoSize = true;
-            lblResPromedio.Location = new Point(554, 79);
+            lblResPromedio.Font = new Font("Consolas", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblResPromedio.Location = new Point(534, 114);
             lblResPromedio.Name = "lblResPromedio";
-            lblResPromedio.Size = new Size(38, 15);
+            lblResPromedio.Size = new Size(106, 24);
             lblResPromedio.TabIndex = 41;
-            lblResPromedio.Text = "label5";
+            lblResPromedio.Text = "Promedio";
             // 
             // cmbEstudiant
             // 
@@ -130,7 +131,7 @@
             btnPromedio.BackColor = Color.RoyalBlue;
             btnPromedio.Cursor = Cursors.Hand;
             btnPromedio.Font = new Font("Consolas", 9F, FontStyle.Bold);
-            btnPromedio.Location = new Point(465, 44);
+            btnPromedio.Location = new Point(445, 97);
             btnPromedio.Name = "btnPromedio";
             btnPromedio.Size = new Size(83, 50);
             btnPromedio.TabIndex = 39;
@@ -146,23 +147,23 @@
             dgvEstudiantes.Location = new Point(9, 162);
             dgvEstudiantes.Name = "dgvEstudiantes";
             dgvEstudiantes.ReadOnly = true;
-            dgvEstudiantes.Size = new Size(462, 277);
+            dgvEstudiantes.Size = new Size(547, 282);
             dgvEstudiantes.TabIndex = 38;
             dgvEstudiantes.CellContentClick += dgvEstudiantes_CellContentClick;
             // 
             // textboxEdad
             // 
             textboxEdad.Font = new Font("Consolas", 9F);
-            textboxEdad.Location = new Point(568, 371);
+            textboxEdad.Location = new Point(644, 355);
             textboxEdad.Name = "textboxEdad";
-            textboxEdad.Size = new Size(100, 22);
+            textboxEdad.Size = new Size(138, 22);
             textboxEdad.TabIndex = 37;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Consolas", 9F, FontStyle.Bold);
-            label4.Location = new Point(492, 379);
+            label4.Location = new Point(568, 363);
             label4.Name = "label4";
             label4.Size = new Size(35, 14);
             label4.TabIndex = 36;
@@ -172,7 +173,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Georgia", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(492, 180);
+            label3.Location = new Point(568, 164);
             label3.Name = "label3";
             label3.Size = new Size(180, 18);
             label3.TabIndex = 35;
@@ -181,33 +182,33 @@
             // textboxNombre
             // 
             textboxNombre.Font = new Font("Consolas", 9F);
-            textboxNombre.Location = new Point(568, 255);
+            textboxNombre.Location = new Point(644, 239);
             textboxNombre.Name = "textboxNombre";
-            textboxNombre.Size = new Size(100, 22);
+            textboxNombre.Size = new Size(138, 22);
             textboxNombre.TabIndex = 34;
             // 
             // textboxDireccion
             // 
             textboxDireccion.Font = new Font("Consolas", 9F);
-            textboxDireccion.Location = new Point(568, 293);
+            textboxDireccion.Location = new Point(644, 277);
             textboxDireccion.Name = "textboxDireccion";
-            textboxDireccion.Size = new Size(100, 22);
+            textboxDireccion.Size = new Size(138, 22);
             textboxDireccion.TabIndex = 33;
             // 
             // textboxCarrera
             // 
             textboxCarrera.Font = new Font("Consolas", 9F);
-            textboxCarrera.Location = new Point(569, 332);
+            textboxCarrera.Location = new Point(645, 316);
             textboxCarrera.Name = "textboxCarrera";
-            textboxCarrera.Size = new Size(100, 22);
+            textboxCarrera.Size = new Size(137, 22);
             textboxCarrera.TabIndex = 32;
             // 
             // textboxCodig
             // 
             textboxCodig.Font = new Font("Consolas", 9F);
-            textboxCodig.Location = new Point(568, 216);
+            textboxCodig.Location = new Point(644, 200);
             textboxCodig.Name = "textboxCodig";
-            textboxCodig.Size = new Size(100, 22);
+            textboxCodig.Size = new Size(138, 22);
             textboxCodig.TabIndex = 31;
             // 
             // BtnAceptar
@@ -215,7 +216,7 @@
             BtnAceptar.BackColor = Color.RoyalBlue;
             BtnAceptar.Cursor = Cursors.Hand;
             BtnAceptar.Font = new Font("Consolas", 9F, FontStyle.Bold);
-            BtnAceptar.Location = new Point(492, 408);
+            BtnAceptar.Location = new Point(584, 392);
             BtnAceptar.Name = "BtnAceptar";
             BtnAceptar.Size = new Size(80, 31);
             BtnAceptar.TabIndex = 30;
@@ -227,7 +228,7 @@
             // 
             lblArea.AutoSize = true;
             lblArea.Font = new Font("Consolas", 9F, FontStyle.Bold);
-            lblArea.Location = new Point(492, 340);
+            lblArea.Location = new Point(568, 324);
             lblArea.Name = "lblArea";
             lblArea.Size = new Size(56, 14);
             lblArea.TabIndex = 29;
@@ -237,7 +238,7 @@
             // 
             lblEditorial.AutoSize = true;
             lblEditorial.Font = new Font("Consolas", 9F, FontStyle.Bold);
-            lblEditorial.Location = new Point(492, 301);
+            lblEditorial.Location = new Point(568, 285);
             lblEditorial.Name = "lblEditorial";
             lblEditorial.Size = new Size(70, 14);
             lblEditorial.TabIndex = 28;
@@ -247,7 +248,7 @@
             // 
             lblID.AutoSize = true;
             lblID.Font = new Font("Consolas", 9F, FontStyle.Bold);
-            lblID.Location = new Point(492, 224);
+            lblID.Location = new Point(568, 208);
             lblID.Name = "lblID";
             lblID.Size = new Size(21, 14);
             lblID.TabIndex = 27;
@@ -257,7 +258,7 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Consolas", 9F, FontStyle.Bold);
-            lblTitulo.Location = new Point(492, 263);
+            lblTitulo.Location = new Point(568, 247);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(49, 14);
             lblTitulo.TabIndex = 26;
@@ -336,10 +337,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Franklin Gothic Medium", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(179, 17);
+            label1.Font = new Font("Georgia", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(287, 17);
             label1.Name = "label1";
-            label1.Size = new Size(199, 24);
+            label1.Size = new Size(239, 25);
             label1.TabIndex = 19;
             label1.Text = "Menu de Estudiantes";
             // 
@@ -363,6 +364,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
             Name = "Estudiantes";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Estudiantes";
             Load += Estudiantes_Load;
             panel1.ResumeLayout(false);

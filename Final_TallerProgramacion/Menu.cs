@@ -70,21 +70,34 @@ namespace Final_TallerProgramacion
         {
             Libros formLibros = new Libros();
             formLibros.Show();
+            this.Hide();
         }
 
         private void autoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Autores formAutores = new Autores();
-
             formAutores.Show();
+            this.Hide();
 
         }
 
         private void estudiantesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Estudiantes formEstud = new Estudiantes();
-
             formEstud.Show();
+            this.Hide();
+        }
+
+        private void prestamosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Prestamos formPrestamo = new Prestamos();
+            formPrestamo.Show();
+            this.Hide();
+        }
+
+        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit(); // Mata todos los procesos del programa
         }
     }
 }

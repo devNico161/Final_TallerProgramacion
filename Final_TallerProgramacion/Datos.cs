@@ -510,5 +510,51 @@ namespace Final_TallerProgramacion
             }
             return promedioResultado;
         }
+
+        public DataTable ObtenerEstudiante ()
+        {
+            Conexion Objconexion = new Conexion();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection conexion = Objconexion.AbrirConexion())
+                {
+                    string Consulta = "SELECT IdEstudiantes, Nombre FROM Estudiantes";
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(Consulta, conexion))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Estudiante", ex.Message);
+            }
+            return dt;
+        }
+        public DataTable ObtenerLibros()
+        {
+            Conexion Objconexion = new Conexion();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection conexion = Objconexion.AbrirConexion())
+                {
+                    string Consulta = "SELECT IdLibro, Titulo FROM Libro";
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(Consulta, conexion))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error libros: " + ex.Message);
+            }
+            return dt;
+        }
     }
 }

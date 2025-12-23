@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             Libro = new Panel();
+            label2 = new Label();
             BtnConfirmarBusqueda = new Button();
             dgvF2MenuLibros = new DataGridView();
             CmbBuscarPor = new ComboBox();
@@ -48,7 +49,6 @@
             BtnAgregarLibro = new Button();
             TextBoxBuscarLibro = new TextBox();
             lblBuscarLibro = new Label();
-            label2 = new Label();
             Libro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvF2MenuLibros).BeginInit();
             SuspendLayout();
@@ -81,6 +81,16 @@
             Libro.Size = new Size(751, 363);
             Libro.TabIndex = 0;
             Libro.Paint += Libro_Paint;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Georgia", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(282, 17);
+            label2.Name = "label2";
+            label2.Size = new Size(181, 25);
+            label2.TabIndex = 21;
+            label2.Text = "Menu de Libros";
             // 
             // BtnConfirmarBusqueda
             // 
@@ -284,16 +294,6 @@
             lblBuscarLibro.Text = "Buscar Libro🔎";
             lblBuscarLibro.Click += lblBuscarLibro_Click;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Franklin Gothic Medium", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(282, 19);
-            label2.Name = "label2";
-            label2.Size = new Size(148, 24);
-            label2.TabIndex = 21;
-            label2.Text = "Menu de Libros";
-            // 
             // Libros
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -301,6 +301,7 @@
             ClientSize = new Size(805, 450);
             Controls.Add(Libro);
             Name = "Libros";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Libros";
             Load += Libros_Load;
             Libro.ResumeLayout(false);

@@ -65,6 +65,11 @@ namespace Final_TallerProgramacion
         {
 
         }
+
+        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit(); // Mata todos los procesos del programa
+        }
     }
 }
 

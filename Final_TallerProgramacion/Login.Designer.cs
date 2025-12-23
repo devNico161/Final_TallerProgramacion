@@ -140,7 +140,9 @@ namespace Final_TallerProgramacion
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
             Name = "Login";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Form1";
+            FormClosed += Login_FormClosed;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
