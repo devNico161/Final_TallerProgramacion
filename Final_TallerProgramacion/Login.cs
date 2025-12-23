@@ -2,9 +2,9 @@ using System.Data;
 
 namespace Final_TallerProgramacion
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -41,29 +41,29 @@ namespace Final_TallerProgramacion
             );
         }
 
-        private void BtnIniciarSesion_Click(object sender, EventArgs e)
+        private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            // *** 1. Lógica de Conexión y Apertura de Menú ***
-            Conexion objConexion = new Conexion();
+            string UsuarioValido = "Admin";
+            string ContraValida = "1234";
 
-            // Verificamos la conexión antes de continuar
-            if (objConexion.AbrirConexion().State == ConnectionState.Open)
+            // Comparamos los textos
+            if (TextUsuario.Text.Trim() == UsuarioValido && TextContraseña.Text.Trim() == ContraValida)
             {
-                MessageBox.Show("¡Conexión Exitosa a la base de datos Final!");
-                objConexion.CerrarConexion(); // Cerramos la conexión después de la prueba
-
-                // Creamos la instancia del menú
+                // Si coinciden, abrimos el menú directamente
                 Menu formMenu = new Menu();
-
-                // NO LLAMAMOS A LA CARGA AQUÍ. La carga se hará en el evento Shown del Menu.
-
                 formMenu.Show();
-                //this.Hide();
+                this.Hide();
             }
             else
             {
-                MessageBox.Show("Error de conexión al servidor. No se puede iniciar el programa.");
+                MessageBox.Show("Usuario o Contraseña Incorrecta");
             }
+
+        }
+
+        private void TextContraseña_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

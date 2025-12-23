@@ -1,6 +1,7 @@
-﻿namespace Final_TallerProgramacion
+﻿
+namespace Final_TallerProgramacion
 {
-    partial class Form1
+    partial class Login
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,9 +30,9 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            button1 = new Button();
+            btnCrearCuenta = new Button();
             label1 = new Label();
-            BtnIniciarSesion = new Button();
+            btnIniciarSesion = new Button();
             TextContraseña = new TextBox();
             TextUsuario = new TextBox();
             lblContraseña = new Label();
@@ -42,9 +43,9 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaption;
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnCrearCuenta);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(BtnIniciarSesion);
+            panel1.Controls.Add(btnIniciarSesion);
             panel1.Controls.Add(TextContraseña);
             panel1.Controls.Add(TextUsuario);
             panel1.Controls.Add(lblContraseña);
@@ -55,18 +56,19 @@
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
-            // button1
+            // btnCrearCuenta
             // 
-            button1.BackColor = Color.LimeGreen;
-            button1.Cursor = Cursors.Hand;
-            button1.Font = new Font("Georgia", 9F, FontStyle.Bold);
-            button1.ForeColor = SystemColors.ControlText;
-            button1.Location = new Point(40, 210);
-            button1.Name = "button1";
-            button1.Size = new Size(187, 43);
-            button1.TabIndex = 6;
-            button1.Text = "CREAR CUENTA NUEVA";
-            button1.UseVisualStyleBackColor = false;
+            btnCrearCuenta.BackColor = Color.LimeGreen;
+            btnCrearCuenta.Cursor = Cursors.Hand;
+            btnCrearCuenta.Font = new Font("Georgia", 9F, FontStyle.Bold);
+            btnCrearCuenta.ForeColor = SystemColors.ControlText;
+            btnCrearCuenta.Location = new Point(40, 210);
+            btnCrearCuenta.Name = "btnCrearCuenta";
+            btnCrearCuenta.Size = new Size(187, 43);
+            btnCrearCuenta.TabIndex = 6;
+            btnCrearCuenta.Text = "CREAR CUENTA NUEVA";
+            btnCrearCuenta.UseVisualStyleBackColor = false;
+            btnCrearCuenta.Click += btnCrearCuenta_Click;
             // 
             // label1
             // 
@@ -83,17 +85,17 @@
             label1.MouseEnter += label1_MouseEnter;
             label1.MouseLeave += label1_MouseLeave;
             // 
-            // BtnIniciarSesion
+            // btnIniciarSesion
             // 
-            BtnIniciarSesion.BackColor = Color.RoyalBlue;
-            BtnIniciarSesion.Font = new Font("Georgia", 9F, FontStyle.Bold);
-            BtnIniciarSesion.Location = new Point(55, 137);
-            BtnIniciarSesion.Name = "BtnIniciarSesion";
-            BtnIniciarSesion.Size = new Size(162, 42);
-            BtnIniciarSesion.TabIndex = 4;
-            BtnIniciarSesion.Text = "INICIAR SESION";
-            BtnIniciarSesion.UseVisualStyleBackColor = false;
-            BtnIniciarSesion.Click += BtnIniciarSesion_Click;
+            btnIniciarSesion.BackColor = Color.RoyalBlue;
+            btnIniciarSesion.Font = new Font("Georgia", 9F, FontStyle.Bold);
+            btnIniciarSesion.Location = new Point(55, 137);
+            btnIniciarSesion.Name = "btnIniciarSesion";
+            btnIniciarSesion.Size = new Size(162, 42);
+            btnIniciarSesion.TabIndex = 4;
+            btnIniciarSesion.Text = "INICIAR SESION";
+            btnIniciarSesion.UseVisualStyleBackColor = false;
+            btnIniciarSesion.Click += btnIniciarSesion_Click;
             // 
             // TextContraseña
             // 
@@ -131,17 +133,22 @@
             lblUsuario.TabIndex = 0;
             lblUsuario.Text = "USUARIO";
             // 
-            // Form1
+            // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
-            Name = "Form1";
+            Name = "Login";
             Text = "Form1";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
+        }
+
+        private void btnCrearCuenta_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Función en desarrollo...");
         }
 
         #endregion
@@ -152,7 +159,8 @@
         private Label lblUsuario;
         private TextBox TextContraseña;
         private Label label1;
-        private Button BtnIniciarSesion;
-        private Button button1;
+        private Button btnIniciarSesion;
+        private Button btnCrearCuenta;
+        
     }
 }
